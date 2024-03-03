@@ -1,0 +1,35 @@
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.container {
+	border: 5px solid rgb(0, 81, 255);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.board {
+	/* margin: 2px; */
+	display: flex;
+	flex-wrap: wrap;
+
+	width: 960px;
+	height: 800px;
+}
+.board > div {
+	background-color: rgb(243, 152, 152);
+	width: 60px;
+	/* height: 60px; */
+	border: 1px solid black;
+	padding: 2px;
+}
