@@ -1,0 +1,53 @@
+understand this method 
+//
+let grids = [];
+let gridno = 256;
+let container = document.querySelector('.container')
+const btn = document.querySelector('button');
+
+// Event listener for a button click to choose the grid size
+btn.addEventListener("click", chooseGridSize)
+
+// Function to handle grid size selection
+function chooseGridSize() {
+    // Remove existing grids
+    for (let grid of grids) grid.remove();
+
+    // Prompt user for the number of squares per side
+    let sides = prompt("how many squares per side?");
+    if (sides > 100) sides = 100;
+    gridno = sides * sides;
+
+    // Create and append new grids based on the chosen size
+    for (let i = 0; i < gridno; i++) {
+        grids[i] = document.createElement('div');
+        grids[i].classList.add(`grid${i}`);
+        let percent = 100 / sides;
+        container.appendChild(grids[i]);
+        grids[i].style.cssText = `width:${percent}%; height:${percent}%;`;
+    }
+
+    // Add event listeners to colorize the grids on mouseenter
+    for (let grid of grids) {
+        grid.addEventListener("mouseenter", colorize);
+    }
+}
+
+// Initial creation of grids with a default size
+for (let i = 0; i < gridno; i++) {
+    grids[i] = document.createElement('div');
+    grids[i].classList.add(`grid`);
+    container.appendChild(grids[i]);
+    grids[i].style.cssText = `width:6.25%; height:6.25%;`;
+}
+
+// Event listener for coloring the grids on mouseenter
+for (let grid of grids) {
+    grid.addEventListener("mouseenter", colorize);
+}
+
+// Function to randomly colorize the grids
+function colorize() {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    this.style.backgroundColor = '#' + randomColor;
+}
