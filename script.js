@@ -2,36 +2,43 @@ let board = document.querySelector('.board');
 let userBtn = document.querySelector('button');
 
 function gridFunc(val) {
+	board.innerHTML = '';
+	let size = 100 / val;
 	for (let i = 0; i < val * val; i++) {
 		let square = document.createElement('div');
-		square.classList.add('squareElement');
+		square.style.cssText = `width: ${size}%; height:${size}%`;
 		board.appendChild(square);
 		hoverEffect(square);
 	}
-	console.log(`value of the square:`, val * val);
 }
 gridFunc(16);
+
 userBtn.addEventListener('click', () => {
-	userInput = Number(prompt('enter a number between 16 and 100'));
-	userGrid();
-	console.log(`value of the user input square:`, userInput);
+	let userInput = Number(prompt('Enter a number between whatever and 100'));
+	if (userInput <= 100) {
+		gridFunc(userInput);
+	} else {
+		alert('Too big of a number, try again!');
+	}
 });
-function userGrid() {
-	let removeSquare = document.querySelectorAll('.squareElement');
-	board.remove(removeSquare);
-	gridFunc(userInput);
-}
-// let userInput = 64;
-// for (let i = 0; i < 16 * 16; i++) {
-// 	let square = document.createElement('div');
-// let size = 100 / userInput;
-// square.style.cssText = `width: ${size}%; height:${size}%`;
-// 	board.appendChild(square);
-// 	hoverEffect(square);
-// }
 
 function hoverEffect(square) {
+	let hoverCount = 0;
 	square.addEventListener('mouseover', (e) => {
-		e.target.classList.add('active');
+		hoverCount++;
+		if (hoverCount === 10) {
+			e.target.classList.add('dark');
+		} else if (hoverCount > 10 && hoverCount < 20) {
+			e.target.style.backgroundColor = '#000000';
+			e.target.style.borderColor = '808080';
+		} else {
+			generateColors(e.target);
+			e.target.style.borderColor = '#000000';
+		}
+		console.log(hoverCount);
 	});
+}
+function generateColors(square) {
+	let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+	square.style.backgroundColor = `#${randomColor}`;
 }

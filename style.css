@@ -15,28 +15,23 @@ body {
 }
 .container {
 	border: 3px solid rgba(3, 38, 114, 0.904);
+	border-radius: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .board {
-	/* margin: 2px; */
-
 	display: flex;
 	flex-wrap: wrap;
-
 	width: 960px;
 	height: 800px;
 }
 .board > div {
-	/* background-color: rgb(243, 152, 152); */
-	width: 60px;
-	/* height: 60px; */
 	border: 1px solid black;
 	padding: 2px;
 }
-.active {
-	background-color: orange;
-	transition: all 0.5s ease;
+
+.dark {
+	filter: brightness(0.6);
 }
