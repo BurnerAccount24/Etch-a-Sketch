@@ -28,14 +28,14 @@ function hoverEffect(square) {
 		hoverCount++;
 		if (hoverCount === 10) {
 			e.target.classList.add('dark');
-		} else if (hoverCount > 10 && hoverCount < 20) {
+		} else if (hoverCount > 12 && hoverCount < 20) {
 			e.target.style.backgroundColor = '#000000';
-			e.target.style.borderColor = '808080';
+			e.target.style.borderColor = '#808080';
 		} else {
 			generateColors(e.target);
 			e.target.style.borderColor = '#000000';
+			e.target.classList.remove('dark');
 		}
-		console.log(hoverCount);
 	});
 }
 function generateColors(square) {
