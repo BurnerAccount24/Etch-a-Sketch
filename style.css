@@ -11,7 +11,8 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	min-height: 100%;
+	padding: 20px;
 }
 .container {
 	border: 3px solid rgba(3, 38, 114, 0.904);
@@ -25,7 +26,7 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	width: 960px;
-	height: 800px;
+	height: 80vh;
 }
 .board > div {
 	border: 1px solid black;
@@ -36,7 +37,6 @@ body {
 	filter: brightness(0.5);
 }
 button {
-	/* background-color: rgba(3, 38, 114, 0.904); */
 	background-color: #fff;
 	padding: 11px 30px;
 	color: rgba(3, 38, 114, 0.904);
@@ -54,7 +54,7 @@ button:active,
 button:hover {
 	background-color: rgba(3, 38, 114, 0.904);
 	color: #fff;
-	width: 350px;
-	margin: 12px;
+	width: 330px;
+	margin: 13px;
 	transition: all 0.25s ease-in-out;
 }

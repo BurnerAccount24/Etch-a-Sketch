@@ -14,9 +14,11 @@ function gridFunc(val) {
 gridFunc(16);
 
 userBtn.addEventListener('click', () => {
-	let userInput = Number(prompt('Enter a number between whatever and 100'));
-	if (userInput <= 100) {
+	let userInput = Number(prompt('Enter a number between 1 and 100'));
+	if (userInput >= 1 && userInput <= 100) {
 		gridFunc(userInput);
+	} else if (userInput === 0) {
+		gridFunc(16);
 	} else {
 		alert('Too big of a number, try again!');
 	}
